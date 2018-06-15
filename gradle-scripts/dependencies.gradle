@@ -1,0 +1,59 @@
+ext {
+    //region Version
+    supportVersion = '27.1.0'
+    firebaseVersion = '11.8.0'
+
+    junitVersion = '4.12'
+    mockitoVersion = '1.10.19'
+    hamcrestVersion = '1.1'
+    robolectricVersion = '3.0'
+    //endregion
+
+    //region Package
+    supportPackage = 'com.android.support'
+    supportConstraintPackage = 'com.android.support.constraint'
+    firebasePackage = 'com.google.firebase'
+
+    junitPackage = 'junit'
+    mockitoPackage = 'org.mockito'
+    hamcrestPackage = 'org.hamcrest'
+    robolectricPackage = 'org.robolectric'
+    //endregion
+
+    supportDependencies = [
+            design           : buildDependency(supportPackage, 'design', supportVersion),
+            recyclerView     : buildDependency(supportPackage, 'recyclerview-v7', supportVersion),
+            cardView         : buildDependency(supportPackage, 'cardview-v7', supportVersion),
+            appCompat        : buildDependency(supportPackage, 'appcompat-v7', supportVersion),
+            supportAnnotation: buildDependency(supportPackage, 'support-annotations', supportVersion),
+            palette          : buildDependency(supportPackage, 'palette-v7', supportVersion),
+            percent          : buildDependency(supportPackage, 'percent', supportVersion),
+            exifinterface    : buildDependency(supportPackage, 'exifinterface', supportVersion),
+            multidex         : buildDependency(supportPackage, 'multidex', '1.0.1'),
+            constraintLayout : buildDependency(supportConstraintPackage, 'constraint-layout', '1.1.2')
+    ]
+
+    firebaseDependencies = [
+            core       : buildDependency(firebasePackage, 'firebase-core', '16.0.0'),
+            crash      : buildDependency(firebasePackage, 'firebase-crash', '16.0.0'),
+            database   : buildDependency(firebasePackage, 'firebase-database', '16.0.1'),
+            storage    : buildDependency(firebasePackage, 'firebase-storage', '16.0.1'),
+            firestore  : buildDependency(firebasePackage, 'firebase-firestore', '17.0.1'),
+            auth       : buildDependency(firebasePackage, 'firebase-auth', '16.0.1'),
+            crashlytics: 'com.crashlytics.sdk.android:crashlytics:2.9.3',
+            messaging  : buildDependency(firebasePackage, 'firebase-messaging', '17.0.0'),
+            analytics  : buildDependency(firebasePackage, 'firebase-analytics', '16.0.0'),
+            config     : buildDependency(firebasePackage, 'firebase-config', '16.0.0'),
+    ]
+
+    testingDependencies = [
+            junit      : buildDependency(junitPackage, 'junit', junitVersion),
+            mockito    : buildDependency(mockitoPackage, 'mockito-core', mockitoVersion),
+            robolectric: buildDependency(robolectricPackage, 'robolectric', robolectricVersion),
+            hamcrest   : buildDependency(hamcrestPackage, 'hamcrest-library', hamcrestVersion)
+    ]
+}
+
+static String buildDependency(String group, String module, String version) {
+    return "${group}:${module}:${version}"
+}
